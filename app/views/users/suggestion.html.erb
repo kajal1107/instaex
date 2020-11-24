@@ -1,0 +1,22 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+<table style="width:100%">
+	<tr>
+		<th>Emails</th>
+		<th>Followers</th>
+		<th>Following</th>
+		<th colspan="1"></th>
+	</tr>
+	<% @users.each do |user|%>
+		<tr>
+			<td><%= user.email%></td>
+			<td><%= user.followers.count %> <%= (user.followers.count) == 1 ? 'follower' : 'followers'%></td>
+			<td><%= user.following.count %> <%= (user.following.count) == 1 ? 'following' : 'followings'%></td>
+			<td><%=link_to 'Show', disp_path(user) %></td>
+		</tr>
+	<%end%>
+</table>
+<%= link_to "Back", root_path %>

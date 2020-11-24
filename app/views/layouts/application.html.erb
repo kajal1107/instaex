@@ -7,10 +7,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <% if user_signed_in? %>
-      <%= link_to('Edit', edit_user_registration_path) %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <h3 style="text-align :right"><%= link_to('Edit', edit_user_registration_path) %>|
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %></h3>
     <% else %>
        <%= link_to('Login', new_user_session_path) %>  
     <% end %>

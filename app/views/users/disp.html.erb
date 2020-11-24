@@ -1,0 +1,14 @@
+<p>
+	<strong><%= @user.email %></strong>
+</p>
+<%#  u = current_user %>
+<%# pre_follow = @user.followers.find { |follow| follow.id == @user.id} %>
+<%# if pre_follow %>
+	<%#= button_to 'UnFollow', unfollow_path(@user, pre_follow), method: :delete, :class => "button1" %>
+<%# else %>
+	<%#= button_to "follow", follow_path(@user), method: :post, :class => 'button' %>
+<%# end %><br>
+
+<%= button_to "follow", follow_path(@user), method: :post, :class => 'button' %>
+<%= button_to "unfollow", unfollow_path(@user), method: :delete, :class => 'button1' %>
+<%= link_to "Back ", suggestion_path %>

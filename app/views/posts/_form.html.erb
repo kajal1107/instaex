@@ -1,12 +1,28 @@
-<%= form_with model: @post, local: true do |form| %>
-  <%= form.hidden_field :user_id, :value => current_user.id %>
+<%= form_with model: @post do |form| %>
   <p>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :id => "tinymce" %>
   </p>
-
+  <%= form.hidden_field :user_id, :value => current_user.id %>
   <p>
-    <%#= form.submit %>
-    <%= form.submit 'Create Post', data: { confirm: 'Do you want to create post?' } %>
+    <%= form.submit %>
+    <%#= form.submit 'Create Post', data: { confirm: 'Do you want to create post?' } %>
   </p>
 <% end %>
+
+<script>
+   tinymce.init({
+    selector: '#tinymce',
+    height: 200,
+    menubar: true,
+    plugins: [
+    	'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+     ],
+     toolbar: 'undo redo | formatselect | ' +
+      	' bold italic backcolor | alignleft aligncenter ' +
+       	' alignright alignjustify | bullist numlist outdent indent | ' +
+       	' removeformat | help'
+   	});
+</script>

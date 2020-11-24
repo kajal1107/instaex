@@ -16,11 +16,14 @@ class PostsController < ApplicationController
 	end
 
 	def create
+		@posts = Post.all
   	@post = Post.new(post_params)
- 		if @post.save
-   		redirect_to @post
-  	else
-    	render 'new'
+  	respond_to do |format|
+ 			if @post.save
+ 				format.js
+  		else
+    		render 'new'
+  		end
   	end
 	end
 
